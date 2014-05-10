@@ -1,0 +1,25 @@
+{
+  "name": "jquery-auto-builder",
+  "version": "0.0.1",
+  "description": "A jQuery automated builder. It builds a custom version of jQuery based on your jQuery files' needs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/vicnicius/jquery-auto-builder"
+  },
+  "keywords": [
+    "jquery",
+    "custom",
+    "build",
+    "web"
+  ],
+  "author": "Vinícius Andrade",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vicnicius/jquery-auto-builder/issues"
+  },
+  "homepage": "https://github.com/vicnicius/jquery-auto-builder"
+}
