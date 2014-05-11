@@ -4,7 +4,7 @@
   "description": "A jQuery automated builder. It builds a custom version of jQuery based on your jQuery files' needs.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/vicnicius/jquery-auto-builder/issues"
   },
-  "homepage": "https://github.com/vicnicius/jquery-auto-builder"
+  "homepage": "https://github.com/vicnicius/jquery-auto-builder",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-mocha-test": "^0.10.2"
+  }
 }

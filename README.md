@@ -1,4 +1,4 @@
 jquery-auto-builder
 ===================
 
-An auto-builder NPM tool
+An jQuery auto-builder NPM tool
