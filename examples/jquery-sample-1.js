@@ -1,0 +1,2 @@
+$('#ele').fadeIn();
+$('#ele').fadeOut();
