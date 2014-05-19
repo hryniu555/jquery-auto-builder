@@ -1,24 +1,25 @@
 {
-	"name": "jquery-auto-builder",
-	"description": "A jQuery that builds a custom version of jQuery that fits your needs",
-	"main": "tools/node.js",
-	"version": "0.0.1",
+  "name": "jquery-auto-builder",
+  "description": "A jQuery that builds a custom version of jQuery that fits your needs",
+  "main": "tools/node.js",
+  "version": "0.0.1",
   "engines": {
     "node": ">= 0.10.0"
   },
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/vicnicius/jquery-auto-builder.git"
-	},
-	"dependencies":{
-		"async": "~0.2.6",
-		"minimist": "~0.1.0",
-		"grunt": "~0.4.2"
-	},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vicnicius/jquery-auto-builder.git"
+  },
+  "dependencies": {
+    "async": "^0.2.10",
+    "minimist": "~0.1.0",
+    "grunt": "~0.4.2"
+  },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.7.2",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-mocha-test": "~0.2.2",
-    "load-grunt-tasks": "^0.4.0"
+    "load-grunt-tasks": "^0.4.0",
+    "chai": "^1.9.1"
   }
 }

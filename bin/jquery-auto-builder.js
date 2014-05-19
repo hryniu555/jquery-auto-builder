@@ -1,13 +1,17 @@
 "use strict";
 
-var sys = require("util");
-var fs = require("fs");
-var path = require("path");
 var argv = require('minimist')(process.argv.slice(2));
+var jqb = require("../lib/jqBuilder");
+var sys = require("util");
+//get files
+var jqFiles = "";
 
-argv._.forEach(function(file){
-	fs.readFile(file,"utf8",function(err, data) {
-		if (err) throw err;
-		console.log(data);
-	});
+jqb.getFunctions(argv._, function(err, data){
+
+	if(err){
+		sys.error(err);
+	}else{
+		jqFiles = data;
+	}
+
 });
