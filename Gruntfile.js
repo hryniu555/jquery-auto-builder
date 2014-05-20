@@ -22,14 +22,6 @@ module.exports = function(grunt) {
         src: ['lib/**/*.js', 'bin/**/*.js', 'tools/**/*.js']
       }
     },
-		mochaTest: {
-			test:{
-				options:{
-					reporter: 'spec'
-				},
-				src: ['test/**/*.js']
-			}
-		},
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -48,6 +40,6 @@ module.exports = function(grunt) {
 
   
   // Default task.
-  grunt.registerTask('default', ['jshint','mochaTest','watch']);
+  grunt.registerTask('default', ['jshint','watch']);
 
 };
