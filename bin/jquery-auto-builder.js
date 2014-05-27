@@ -1,7 +1,8 @@
 "use strict";
 
 var argv = require('minimist')(process.argv.slice(2));
-var jqb = require("../lib/jqBuilder");
+var jqParser = require("../lib/jqParser");
+var jqBuilder = require("../lib/jqBuilder");
 var sys = require("util");
 var async = require("async");
 
@@ -12,7 +13,7 @@ var jqFunc = [];
 //First get functions, then the modules.
 async.series({
 	funcs: function(callback){
-		jqb.getFunctions(argv._, function(err, data){
+		jqParser.getFunctions(argv._, function(err, data){
 			if(err){	
 				callback(err);
 			}else{
@@ -22,7 +23,7 @@ async.series({
 		});
 	},
 	mods: function(callback){
-		jqb.getModules(jqFunc, function(err, mods){
+		jqParser.getModules(jqFunc, function(err, mods){
 			if(err){
 				callback(err);
 			}else{
@@ -36,7 +37,17 @@ async.series({
 		sys.error(err);
 		process.exit(1);
 	}else{
-		console.log("Módulos: "+results.mods);
+		jqBuilder({}, function(err, data){
+			if (err){
+				console.log(err);
+			}else{
+				console.log(data);
+			}
+
+		});
 	}
 });
+
+
+
 
