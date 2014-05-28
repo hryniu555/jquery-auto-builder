@@ -42,67 +42,25 @@
 // you try to trace through "use strict" call chains. (#13335)
 // Support: Firefox 18+
 //
-define('var/arr',[],function() {
-	return [];
-});
+var arr = [];
 
-define('var/slice',[
-	"./arr"
-], function( arr ) {
-	return arr.slice;
-});
+var slice = arr.slice;
 
-define('var/concat',[
-	"./arr"
-], function( arr ) {
-	return arr.concat;
-});
+var concat = arr.concat;
 
-define('var/push',[
-	"./arr"
-], function( arr ) {
-	return arr.push;
-});
+var push = arr.push;
 
-define('var/indexOf',[
-	"./arr"
-], function( arr ) {
-	return arr.indexOf;
-});
+var indexOf = arr.indexOf;
 
-define('var/class2type',[],function() {
-	// [[Class]] -> type pairs
-	return {};
-});
+var class2type = {};
 
-define('var/toString',[
-	"./class2type"
-], function( class2type ) {
-	return class2type.toString;
-});
+var toString = class2type.toString;
 
-define('var/hasOwn',[
-	"./class2type"
-], function( class2type ) {
-	return class2type.hasOwnProperty;
-});
+var hasOwn = class2type.hasOwnProperty;
 
-define('var/support',[],function() {
-	// All support tests are defined in their respective modules.
-	return {};
-});
+var support = {};
 
-define('core',[
-	"./var/arr",
-	"./var/slice",
-	"./var/concat",
-	"./var/push",
-	"./var/indexOf",
-	"./var/class2type",
-	"./var/toString",
-	"./var/hasOwn",
-	"./var/support"
-], function( arr, slice, concat, push, indexOf, class2type, toString, hasOwn, support ) {
+
 
 var
 	// Use the correct document accordingly with window argument (sandbox)
@@ -587,10 +545,7 @@ function isArraylike( obj ) {
 	return type === "array" || length === 0 ||
 		typeof length === "number" && length > 0 && ( length - 1 ) in obj;
 }
-
-return jQuery;
-});
-
+var Sizzle =
 /*!
  * Sizzle CSS Selector Engine v1.10.19
  * http://sizzlejs.com/
@@ -2623,23 +2578,11 @@ if ( !assert(function( div ) {
 	});
 }
 
-// EXPOSE
-if ( typeof define === "function" && define.amd ) {
-	define('sizzle',[],function() { return Sizzle; });
-// Sizzle requires that there be a global window in Common-JS like environments
-} else if ( typeof module !== "undefined" && module.exports ) {
-	module.exports = Sizzle;
-} else {
-	window.Sizzle = Sizzle;
-}
-// EXPOSE
+return Sizzle;
 
 })( window );
 
-define('selector-sizzle',[
-	"./core",
-	"sizzle"
-], function( jQuery, Sizzle ) {
+
 
 jQuery.find = Sizzle;
 jQuery.expr = Sizzle.selectors;
@@ -2649,28 +2592,13 @@ jQuery.text = Sizzle.getText;
 jQuery.isXMLDoc = Sizzle.isXML;
 jQuery.contains = Sizzle.contains;
 
-});
 
-define([ "./selector-sizzle" ]);
 
-define('traversing/var/rneedsContext',[
-	"../../core",
-	"../../selector"
-], function( jQuery ) {
-	return jQuery.expr.match.needsContext;
-});
+var rneedsContext = jQuery.expr.match.needsContext;
 
-define('core/var/rsingleTag',[],function() {
-	// Match a standalone tag
-	return (/^<(\w+)\s*\/?>(?:<\/\1>|)$/);
-});
+var rsingleTag = (/^<(\w+)\s*\/?>(?:<\/\1>|)$/);
 
-define('traversing/findFilter',[
-	"../core",
-	"../var/indexOf",
-	"./var/rneedsContext",
-	"../selector"
-], function( jQuery, indexOf, rneedsContext ) {
+
 
 var risSimple = /^.[^:#\[\.,]*$/;
 
@@ -2764,14 +2692,9 @@ jQuery.fn.extend({
 	}
 });
 
-});
 
 // Initialize a jQuery object
-define('core/init',[
-	"../core",
-	"./var/rsingleTag",
-	"../traversing/findFilter"
-], function( jQuery, rsingleTag ) {
+
 
 // A central reference to the root jQuery(document)
 var rootjQuery,
@@ -2886,18 +2809,6 @@ init.prototype = jQuery.fn;
 // Initialize central reference
 rootjQuery = jQuery( document );
 
-return init;
-
-});
-
-define('traversing',[
-	"./core",
-	"./var/indexOf",
-	"./traversing/var/rneedsContext",
-	"./core/init",
-	"./traversing/findFilter",
-	"./selector"
-], function( jQuery, indexOf, rneedsContext ) {
 
 var rparentsprev = /^(?:parents|prev(?:Until|All))/,
 	// methods guaranteed to produce a unique set when starting from a unique set
@@ -3087,18 +2998,9 @@ jQuery.each({
 		return this.pushStack( matched );
 	};
 });
+var rnotwhite = (/\S+/g);
 
-return jQuery;
-});
 
-define('var/rnotwhite',[],function() {
-	return (/\S+/g);
-});
-
-define('callbacks',[
-	"./core",
-	"./var/rnotwhite"
-], function( jQuery, rnotwhite ) {
 
 // String to Object options format cache
 var optionsCache = {};
@@ -3298,14 +3200,6 @@ jQuery.Callbacks = function( options ) {
 	return self;
 };
 
-return jQuery;
-});
-
-define('deferred',[
-	"./core",
-	"./var/slice",
-	"./callbacks"
-], function( jQuery, slice ) {
 
 jQuery.extend({
 
@@ -3448,14 +3342,6 @@ jQuery.extend({
 	}
 });
 
-return jQuery;
-});
-
-define('core/ready',[
-	"../core",
-	"../core/init",
-	"../deferred"
-], function( jQuery ) {
 
 // The deferred used on DOM ready
 var readyList;
@@ -3547,11 +3433,8 @@ jQuery.ready.promise = function( obj ) {
 // Kick off the DOM ready check even if the user does not
 jQuery.ready.promise();
 
-});
 
-define('core/access',[
-	"../core"
-], function( jQuery ) {
+
 
 // Multifunctional method to get and set values of a collection
 // The value/s can optionally be executed if it's a function
@@ -3606,13 +3489,6 @@ var access = jQuery.access = function( elems, fn, key, value, chainable, emptyGe
 			len ? fn( elems[0], key ) : emptyGet;
 };
 
-return access;
-
-});
-
-define('data/accepts',[
-	"../core"
-], function( jQuery ) {
 
 /**
  * Determines whether an object can have data
@@ -3628,14 +3504,6 @@ jQuery.acceptData = function( owner ) {
 	return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
 };
 
-return jQuery.acceptData;
-});
-
-define('data/Data',[
-	"../core",
-	"../var/rnotwhite",
-	"./accepts"
-], function( jQuery, rnotwhite ) {
 
 function Data() {
 	// Support: Android < 4,
@@ -3809,29 +3677,11 @@ Data.prototype = {
 		}
 	}
 };
+var data_priv = new Data();
 
-return Data;
-});
+var data_user = new Data();
 
-define('data/var/data_priv',[
-	"../Data"
-], function( Data ) {
-	return new Data();
-});
 
-define('data/var/data_user',[
-	"../Data"
-], function( Data ) {
-	return new Data();
-});
-
-define('data',[
-	"./core",
-	"./var/rnotwhite",
-	"./core/access",
-	"./data/var/data_priv",
-	"./data/var/data_user"
-], function( jQuery, rnotwhite, access, data_priv, data_user ) {
 
 /*
 	Implementation Summary
@@ -4002,15 +3852,6 @@ jQuery.fn.extend({
 	}
 });
 
-return jQuery;
-});
-
-define('queue',[
-	"./core",
-	"./data/var/data_priv",
-	"./deferred",
-	"./callbacks"
-], function( jQuery, data_priv ) {
 
 jQuery.extend({
 	queue: function( elem, type, data ) {
@@ -4144,39 +3985,20 @@ jQuery.fn.extend({
 		return defer.promise( obj );
 	}
 });
+var pnum = (/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/).source;
 
-return jQuery;
-});
+var cssExpand = [ "Top", "Right", "Bottom", "Left" ];
 
-define('var/pnum',[],function() {
-	return (/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/).source;
-});
-
-define('css/var/cssExpand',[],function() {
-	return [ "Top", "Right", "Bottom", "Left" ];
-});
-
-define('css/var/isHidden',[
-	"../../core",
-	"../../selector"
-	// css is assumed
-], function( jQuery ) {
-
-	return function( elem, el ) {
+var isHidden = function( elem, el ) {
 		// isHidden might be called from jQuery#filter function;
 		// in that case, element will be second argument
 		elem = el || elem;
 		return jQuery.css( elem, "display" ) === "none" || !jQuery.contains( elem.ownerDocument, elem );
 	};
-});
 
-define('manipulation/var/rcheckableType',[],function() {
-	return (/^(?:checkbox|radio)$/i);
-});
+var rcheckableType = (/^(?:checkbox|radio)$/i);
 
-define('manipulation/support',[
-	"../var/support"
-], function( support ) {
+
 
 (function() {
 	var fragment = document.createDocumentFragment(),
@@ -4201,38 +4023,12 @@ define('manipulation/support',[
 	div.innerHTML = "<textarea>x</textarea>";
 	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
 })();
+var strundefined = typeof undefined;
 
-return support;
 
-});
-
-define('var/strundefined',[],function() {
-	return typeof undefined;
-});
-
-define('event/support',[
-	"../var/support"
-], function( support ) {
 
 support.focusinBubbles = "onfocusin" in window;
 
-return support;
-
-});
-
-define('event',[
-	"./core",
-	"./var/strundefined",
-	"./var/rnotwhite",
-	"./var/hasOwn",
-	"./var/slice",
-	"./event/support",
-	"./data/var/data_priv",
-
-	"./core/init",
-	"./data/accepts",
-	"./selector"
-], function( jQuery, strundefined, rnotwhite, hasOwn, slice, support, data_priv ) {
 
 var
 	rkeyEvent = /^key/,
@@ -5086,25 +4882,6 @@ jQuery.fn.extend({
 	}
 });
 
-return jQuery;
-});
-
-define('manipulation',[
-	"./core",
-	"./var/concat",
-	"./var/push",
-	"./core/access",
-	"./manipulation/var/rcheckableType",
-	"./manipulation/support",
-	"./data/var/data_priv",
-	"./data/var/data_user",
-
-	"./core/init",
-	"./data/accepts",
-	"./traversing",
-	"./selector",
-	"./event"
-], function( jQuery, concat, push, access, rcheckableType, support, data_priv, data_user ) {
 
 var
 	rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/gi,
@@ -5669,13 +5446,6 @@ jQuery.each({
 	};
 });
 
-return jQuery;
-});
-
-define('css/defaultDisplay',[
-	"../core",
-	"../manipulation" // appendTo
-], function( jQuery ) {
 
 var iframe,
 	elemdisplay = {};
@@ -5738,34 +5508,15 @@ function defaultDisplay( nodeName ) {
 
 	return display;
 }
+var rmargin = (/^margin/);
 
-return defaultDisplay;
+var rnumnonpx = new RegExp( "^(" + pnum + ")(?!px)[a-z%]+$", "i" );
 
-});
-
-define('css/var/rmargin',[],function() {
-	return (/^margin/);
-});
-
-define('css/var/rnumnonpx',[
-	"../../var/pnum"
-], function( pnum ) {
-	return new RegExp( "^(" + pnum + ")(?!px)[a-z%]+$", "i" );
-});
-
-define('css/var/getStyles',[],function() {
-	return function( elem ) {
+var getStyles = function( elem ) {
 		return elem.ownerDocument.defaultView.getComputedStyle( elem, null );
 	};
-});
 
-define('css/curCSS',[
-	"../core",
-	"./var/rnumnonpx",
-	"./var/rmargin",
-	"./var/getStyles",
-	"../selector" // contains
-], function( jQuery, rnumnonpx, rmargin, getStyles ) {
+
 
 function curCSS( elem, name, computed ) {
 	var width, minWidth, maxWidth, ret,
@@ -5814,10 +5565,6 @@ function curCSS( elem, name, computed ) {
 		ret;
 }
 
-return curCSS;
-});
-
-define('css/addGetHookIf',[],function() {
 
 function addGetHookIf( conditionFn, hookFn ) {
 	// Define the hook, we'll check on the first run if it's really needed.
@@ -5838,14 +5585,6 @@ function addGetHookIf( conditionFn, hookFn ) {
 	};
 }
 
-return addGetHookIf;
-
-});
-
-define('css/support',[
-	"../core",
-	"../var/support"
-], function( jQuery, support ) {
 
 (function() {
 	var pixelPositionVal, boxSizingReliableVal,
@@ -5930,13 +5669,6 @@ define('css/support',[
 	}
 })();
 
-return support;
-
-});
-
-define('css/swap',[
-	"../core"
-], function( jQuery ) {
 
 // A method for quickly swapping in/out CSS properties to get correct calculations.
 jQuery.swap = function( elem, options, callback, args ) {
@@ -5959,31 +5691,6 @@ jQuery.swap = function( elem, options, callback, args ) {
 	return ret;
 };
 
-return jQuery.swap;
-
-});
-
-define('css',[
-	"./core",
-	"./var/pnum",
-	"./core/access",
-	"./css/var/rmargin",
-	"./css/var/rnumnonpx",
-	"./css/var/cssExpand",
-	"./css/var/isHidden",
-	"./css/var/getStyles",
-	"./css/curCSS",
-	"./css/defaultDisplay",
-	"./css/addGetHookIf",
-	"./css/support",
-	"./data/var/data_priv",
-
-	"./core/init",
-	"./css/swap",
-	"./core/ready",
-	"./selector" // contains
-], function( jQuery, pnum, access, rmargin, rnumnonpx, cssExpand, isHidden,
-	getStyles, curCSS, defaultDisplay, addGetHookIf, support, data_priv ) {
 
 var
 	// swappable if display is none or starts with table except "table", "table-cell", or "table-caption"
@@ -6412,13 +6119,6 @@ jQuery.fn.extend({
 	}
 });
 
-return jQuery;
-});
-
-define('effects/Tween',[
-	"../core",
-	"../css"
-], function( jQuery ) {
 
 function Tween( elem, options, prop, end, easing ) {
 	return new Tween.prototype.init( elem, options, prop, end, easing );
@@ -6528,23 +6228,8 @@ jQuery.fx = Tween.prototype.init;
 // Back Compat <1.8 extension point
 jQuery.fx.step = {};
 
-});
 
-define('effects',[
-	"./core",
-	"./var/pnum",
-	"./css/var/cssExpand",
-	"./css/var/isHidden",
-	"./css/defaultDisplay",
-	"./data/var/data_priv",
 
-	"./core/init",
-	"./effects/Tween",
-	"./queue",
-	"./css",
-	"./deferred",
-	"./traversing"
-], function( jQuery, pnum, cssExpand, isHidden, defaultDisplay, data_priv ) {
 
 var
 	fxNow, timerId,
@@ -7177,14 +6862,6 @@ jQuery.fx.speeds = {
 	_default: 400
 };
 
-return jQuery;
-});
-
-define('queue/delay',[
-	"../core",
-	"../queue",
-	"../effects" // Delay is optional because of this dependency
-], function( jQuery ) {
 
 // Based off of the plugin by Clint Helfers, with permission.
 // http://blindsignals.com/index.php/2009/07/jquery-delay/
@@ -7200,12 +6877,6 @@ jQuery.fn.delay = function( time, type ) {
 	});
 };
 
-return jQuery.fn.delay;
-});
-
-define('attributes/support',[
-	"../var/support"
-], function( support ) {
 
 (function() {
 	var input = document.createElement( "input" ),
@@ -7235,18 +6906,6 @@ define('attributes/support',[
 	support.radioValue = input.value === "t";
 })();
 
-return support;
-
-});
-
-define('attributes/attr',[
-	"../core",
-	"../var/rnotwhite",
-	"../var/strundefined",
-	"../core/access",
-	"./support",
-	"../selector"
-], function( jQuery, rnotwhite, strundefined, access, support ) {
 
 var nodeHook, boolHook,
 	attrHandle = jQuery.expr.attrHandle;
@@ -7381,13 +7040,8 @@ jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( i, name ) 
 	};
 });
 
-});
 
-define('attributes/prop',[
-	"../core",
-	"../core/access",
-	"./support"
-], function( jQuery, access, support ) {
+
 
 var rfocusable = /^(?:input|select|textarea|button)$/i;
 
@@ -7478,15 +7132,8 @@ jQuery.each([
 	jQuery.propFix[ this.toLowerCase() ] = this;
 });
 
-});
 
-define('attributes/classes',[
-	"../core",
-	"../var/rnotwhite",
-	"../var/strundefined",
-	"../data/var/data_priv",
-	"../core/init"
-], function( jQuery, rnotwhite, strundefined, data_priv ) {
+
 
 var rclass = /[\t\r\n\f]/g;
 
@@ -7637,13 +7284,8 @@ jQuery.fn.extend({
 	}
 });
 
-});
 
-define('attributes/val',[
-	"../core",
-	"./support",
-	"../core/init"
-], function( jQuery, support ) {
+
 
 var rreturn = /\r/g;
 
@@ -7801,24 +7443,11 @@ jQuery.each([ "radio", "checkbox" ], function() {
 	}
 });
 
-});
 
-define('attributes',[
-	"./core",
-	"./attributes/attr",
-	"./attributes/prop",
-	"./attributes/classes",
-	"./attributes/val"
-], function( jQuery ) {
+
 
 // Return jQuery for attributes-only inclusion
-return jQuery;
-});
 
-define('event/alias',[
-	"../core",
-	"../event"
-], function( jQuery ) {
 
 jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblclick " +
 	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
@@ -7853,21 +7482,12 @@ jQuery.fn.extend({
 	}
 });
 
-});
 
-define('ajax/var/nonce',[
-	"../../core"
-], function( jQuery ) {
-	return jQuery.now();
-});
+var nonce = jQuery.now();
 
-define('ajax/var/rquery',[],function() {
-	return (/\?/);
-});
+var rquery = (/\?/);
 
-define('ajax/parseJSON',[
-	"../core"
-], function( jQuery ) {
+
 
 // Support: Android 2.3
 // Workaround failure to string-cast null input
@@ -7875,13 +7495,6 @@ jQuery.parseJSON = function( data ) {
 	return JSON.parse( data + "" );
 };
 
-return jQuery.parseJSON;
-
-});
-
-define('ajax/parseXML',[
-	"../core"
-], function( jQuery ) {
 
 // Cross-browser xml parsing
 jQuery.parseXML = function( data ) {
@@ -7904,20 +7517,6 @@ jQuery.parseXML = function( data ) {
 	return xml;
 };
 
-return jQuery.parseXML;
-
-});
-
-define('ajax',[
-	"./core",
-	"./var/rnotwhite",
-	"./ajax/var/nonce",
-	"./ajax/var/rquery",
-	"./core/init",
-	"./ajax/parseJSON",
-	"./ajax/parseXML",
-	"./deferred"
-], function( jQuery, rnotwhite, nonce, rquery ) {
 
 var
 	// Document location
@@ -8712,12 +8311,6 @@ jQuery.each( [ "ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSucces
 	};
 });
 
-return jQuery;
-});
-
-define('manipulation/_evalUrl',[
-	"../ajax"
-], function( jQuery ) {
 
 jQuery._evalUrl = function( url ) {
 	return jQuery.ajax({
@@ -8730,15 +8323,6 @@ jQuery._evalUrl = function( url ) {
 	});
 };
 
-return jQuery._evalUrl;
-
-});
-
-define('wrap',[
-	"./core",
-	"./core/init",
-	"./traversing" // parent, contents
-], function( jQuery ) {
 
 jQuery.fn.extend({
 	wrapAll: function( html ) {
@@ -8810,13 +8394,6 @@ jQuery.fn.extend({
 	}
 });
 
-return jQuery;
-});
-
-define('css/hiddenVisibleSelectors',[
-	"../core",
-	"../selector"
-], function( jQuery ) {
 
 jQuery.expr.filters.hidden = function( elem ) {
 	// Support: Opera <= 12.12
@@ -8827,15 +8404,8 @@ jQuery.expr.filters.visible = function( elem ) {
 	return !jQuery.expr.filters.hidden( elem );
 };
 
-});
 
-define('serialize',[
-	"./core",
-	"./manipulation/var/rcheckableType",
-	"./core/init",
-	"./traversing", // filter
-	"./attributes/prop"
-], function( jQuery, rcheckableType ) {
+
 
 var r20 = /%20/g,
 	rbracket = /\[\]$/,
@@ -8938,14 +8508,6 @@ jQuery.fn.extend({
 	}
 });
 
-return jQuery;
-});
-
-define('ajax/xhr',[
-	"../core",
-	"../var/support",
-	"../ajax"
-], function( jQuery, support ) {
 
 jQuery.ajaxSettings.xhr = function() {
 	try {
@@ -9075,12 +8637,8 @@ jQuery.ajaxTransport(function( options ) {
 	}
 });
 
-});
 
-define('ajax/script',[
-	"../core",
-	"../ajax"
-], function( jQuery ) {
+
 
 // Install script dataType
 jQuery.ajaxSetup({
@@ -9140,14 +8698,8 @@ jQuery.ajaxTransport( "script", function( s ) {
 	}
 });
 
-});
 
-define('ajax/jsonp',[
-	"../core",
-	"./var/nonce",
-	"./var/rquery",
-	"../ajax"
-], function( jQuery, nonce, rquery ) {
+
 
 var oldCallbacks = [],
 	rjsonp = /(=)\?(?=&|$)|\?\?/;
@@ -9230,13 +8782,8 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 	}
 });
 
-});
 
-define('core/parseHTML',[
-	"../core",
-	"./var/rsingleTag",
-	"../manipulation" // buildFragment
-], function( jQuery, rsingleTag ) {
+
 
 // data: string of html
 // context (optional): If specified, the fragment will be created in this context, defaults to document
@@ -9268,20 +8815,6 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 	return jQuery.merge( [], parsed.childNodes );
 };
 
-return jQuery.parseHTML;
-
-});
-
-define('ajax/load',[
-	"../core",
-	"../core/parseHTML",
-	"../ajax",
-	"../traversing",
-	"../manipulation",
-	"../selector",
-	// Optional event/alias dependency
-	"../event/alias"
-], function( jQuery ) {
 
 // Keep a copy of the old load method
 var _load = jQuery.fn.load;
@@ -9346,13 +8879,8 @@ jQuery.fn.load = function( url, params, callback ) {
 	return this;
 };
 
-});
 
-define('effects/animatedSelector',[
-	"../core",
-	"../selector",
-	"../effects"
-], function( jQuery ) {
+
 
 jQuery.expr.filters.animated = function( elem ) {
 	return jQuery.grep(jQuery.timers, function( fn ) {
@@ -9360,21 +8888,8 @@ jQuery.expr.filters.animated = function( elem ) {
 	}).length;
 };
 
-});
 
-define('offset',[
-	"./core",
-	"./var/strundefined",
-	"./core/access",
-	"./css/var/rnumnonpx",
-	"./css/curCSS",
-	"./css/addGetHookIf",
-	"./css/support",
 
-	"./core/init",
-	"./css",
-	"./selector" // contains
-], function( jQuery, strundefined, access, rnumnonpx, curCSS, addGetHookIf, support ) {
 
 var docElem = window.document.documentElement;
 
@@ -9564,14 +9079,6 @@ jQuery.each( [ "top", "left" ], function( i, prop ) {
 	);
 });
 
-return jQuery;
-});
-
-define('dimensions',[
-	"./core",
-	"./core/access",
-	"./css"
-], function( jQuery, access ) {
 
 // Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
 jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
@@ -9615,13 +9122,6 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 	});
 });
 
-return jQuery;
-});
-
-define('deprecated',[
-	"./core",
-	"./traversing"
-], function( jQuery ) {
 
 // The number of elements contained in the matched element set
 jQuery.fn.size = function() {
@@ -9630,11 +9130,8 @@ jQuery.fn.size = function() {
 
 jQuery.fn.andSelf = jQuery.fn.addBack;
 
-});
 
-define('exports/amd',[
-	"../core"
-], function( jQuery ) {
+
 
 // Register as a named AMD module, since jQuery can be concatenated with other
 // files that may use define, but not via a proper concatenation script that
@@ -9655,12 +9152,8 @@ if ( typeof define === "function" && define.amd ) {
 	});
 }
 
-});
 
-define('exports/global',[
-	"../core",
-	"../var/strundefined"
-], function( jQuery, strundefined ) {
+
 
 var
 	// Map over jQuery in case of overwrite
@@ -9688,43 +9181,10 @@ if ( typeof noGlobal === strundefined ) {
 	window.jQuery = window.$ = jQuery;
 }
 
-});
 
-define('jquery',[
-	"./core",
-	"./selector",
-	"./traversing",
-	"./callbacks",
-	"./deferred",
-	"./core/ready",
-	"./data",
-	"./queue",
-	"./queue/delay",
-	"./attributes",
-	"./event",
-	"./event/alias",
-	"./manipulation",
-	"./manipulation/_evalUrl",
-	"./wrap",
-	"./css",
-	"./css/hiddenVisibleSelectors",
-	"./serialize",
-	"./ajax",
-	"./ajax/xhr",
-	"./ajax/script",
-	"./ajax/jsonp",
-	"./ajax/load",
-	"./effects",
-	"./effects/animatedSelector",
-	"./offset",
-	"./dimensions",
-	"./deprecated",
-	"./exports/amd",
-	"./exports/global"
-], function( jQuery ) {
+
 
 return jQuery;
 
-});
 
 }));

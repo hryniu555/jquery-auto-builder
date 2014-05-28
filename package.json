@@ -1,7 +1,7 @@
 {
   "name": "jquery-auto-builder",
   "description": "A jQuery that builds a custom version of jQuery that fits your needs",
-  "main": "tools/node.js",
+  "main": "bin/jquery-auto-builder.js",
   "version": "0.0.1",
   "engines": {
     "node": ">= 0.10.0"
