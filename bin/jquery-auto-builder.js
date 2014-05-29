@@ -21,7 +21,8 @@ function build(ver, mods){
 
 	jqBuilder({
 		ver: ver,
-		exclude: mods
+		exclude: mods,
+		minify: "uglify2"
 	}, function(err, data){
 		if(err){
 			sys.error(err);
