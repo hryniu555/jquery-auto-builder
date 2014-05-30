@@ -33,7 +33,8 @@ function build(ver, mods){
 	jqBuilder({
 		ver: ver,
 		exclude: mods,
-		dev: argv.d || false
+		dev: argv.d || false,
+		output: argv.o
 	}, function(err){
 		if(err){
 			sys.error(err);
