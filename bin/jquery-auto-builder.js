@@ -11,19 +11,19 @@ var sys = require("util");
 
 
 if(!argv._.length > 0){
-	console.log("No jquery file given.");
+	sys.log("No files given.");
 	process.exit(1);
 }
 if(argv.v === "1"){
-	console.log("Building latest 1.* stable version (1.11.1)");
+	sys.log("Building latest 1.* jQuery stable version (1.11.1)");
 	argv.v = "1.11.1";//jQuery v1.* latest stable
 }else if(argv.v === "2"){
-	console.log("Building latest 2.* stable version (2.1.1)");
+	sys.log("Building latest 2.* jQuery stable version (2.1.1)");
 	argv.v = "2.1.1"; //jQuery v2.* latest stable
 }else if(argv.v === undefined){
-	console.log("Building latest stable version (2.1.1)");
+	sys.log("Building latest jQuery stable version (2.1.1)");
 }else if(argv.v !== "1.11.1" && argv.v !== "2.1.1"){
-	console.log("Invalid version given. Falling back to latest (2.1.1)");
+	sys.log("Invalid version given. Falling back to latest (2.1.1)");
 	argv.v = "2.1.1";
 }
 
@@ -40,7 +40,7 @@ function build(ver, mods){
 			sys.error(err);
 			process.exit(1);
 		}else{
-			console.log("JQuery custom build built successfully!");
+			sys.log("JQuery custom version built successfully!");
 		}
 	});
 }
