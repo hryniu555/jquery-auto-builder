@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       },
       files: {
-        src: ['lib/**/*.js', 'bin/**/*.js', 'tools/**/*.js']
+        src: ['lib/**/*.js', 'bin/**/*.js', '!lib/jquery/**/*.js']
       }
     },
     watch: {
@@ -28,12 +28,8 @@ module.exports = function(grunt) {
         tasks: ['jshint:gruntfile']
       },
       scripts: {
-        files: ['**/*.js'],
-        tasks: ['jshint', 'mochaTest']
-      },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'mochaTest']
+        files: ['lib/**/*.js', 'bin/**/*.js', '!lib/jquery/**/*.js'],
+        tasks: ['jshint']
       }
     }
   });
