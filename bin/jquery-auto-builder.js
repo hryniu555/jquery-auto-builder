@@ -8,16 +8,22 @@ var jqParser = require("../lib/jqParser");
 var jqBuilder = require("../lib/jqBuilder");
 var sys = require("util");
 //start the fun!
+
+
+if(!argv._.length > 0){
+	console.log("No jquery file given.");
+	process.exit(1);
+}
 if(argv.v === "1"){
-	sys.log("Building latest 1.* stable version (1.11.1)");
+	console.log("Building latest 1.* stable version (1.11.1)");
 	argv.v = "1.11.1";//jQuery v1.* latest stable
 }else if(argv.v === "2"){
-	sys.log("Building latest 2.* stable version (2.1.1)");
+	console.log("Building latest 2.* stable version (2.1.1)");
 	argv.v = "2.1.1"; //jQuery v2.* latest stable
 }else if(argv.v === undefined){
-	sys.log("Building latest stable version (2.1.1)");
+	console.log("Building latest stable version (2.1.1)");
 }else if(argv.v !== "1.11.1" && argv.v !== "2.1.1"){
-	sys.log("Invalid version given. Falling back to latest (2.1.1)");
+	console.log("Invalid version given. Falling back to latest (2.1.1)");
 	argv.v = "2.1.1";
 }
 
@@ -33,11 +39,10 @@ function build(ver, mods){
 			sys.error(err);
 			process.exit(1);
 		}else{
-			sys.log("JQuery custom build built successfully!");
+			console.log("JQuery custom build built successfully!");
 		}
 	});
 }
-
 
 jqParser.getModules(argv._, function(err, excludeMods){
 	if(err){

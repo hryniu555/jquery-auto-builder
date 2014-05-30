@@ -2,13 +2,17 @@
   "name": "jquery-auto-builder",
   "description": "An Automated jQuery Custom Builder that generates a custom build of jquery based on the needs of your code.",
   "main": "bin/jquery-auto-builder.js",
-  "version": "0.1.0",
+  "version": "0.1.22",
   "engines": {
     "node": ">= 0.10.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/vicnicius/jquery-auto-builder.git"
+  },
+  "preferGlobal": "true",
+  "bin": {
+    "jquery-auto-builder": "bin/jquery-auto-builder.js"
   },
   "dependencies": {
     "async": "^0.2.10",
