@@ -21,6 +21,21 @@ Supported `options`:
   + `1` -- Builds jQuery v.1.11.1  
   + `2` -- Builds jQuery v.2.1.1
 
+###Example
+
+Building a minified version of jQuery 2.1.1 based on the file `main.js`, where all your jQuery code lives. Simply run:
+
+`jquery-auto-builder main.js`
+
+A file called jquery.custom.min.js will be created on your current dir with your custom jQuery.
+
+If you wanted a developer version of jQuery 1.11.1 built, based on 3 different files, and the output to have a different name, then you would run:
+
+`jquery-auto-builder main-1.js main-2.js, main-3.js -d -v 1 -o dist/jquery.dev.dry.js`
+
+A file named `jquery.dev.dry.js` would be created on your `dist` (should exist before you run the command) folder with a developer dry version of jQuery v.1.11.1.
+  
+
 ##Support, Issues and Feedback
 
 Any kind of support and feedback will be of great help. 
