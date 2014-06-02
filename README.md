@@ -40,6 +40,10 @@ A file named `jquery.dev.dry.js` would be created on your `dist` (should exist b
 
 Any kind of support and feedback will be of great help. 
 
+##Credits
+
+The core part of this code relies deeply on jQuery's code.
+
 ##License
 
 [MIT License](http://vicnicius.mit-license.org/) © Vinícius Andrade
