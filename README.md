@@ -13,7 +13,7 @@ Then, you can simply use the command-line tool to build your custom version of j
 
 `filename` is the name of the file where you have your jquery code. jQuery Auto Builder will read your file and build a dry version of jQuery with only the modules you need to run your code. 
 
-Supported options:
+Supported `options`:
 
 + `-o` -- the name of the output jquery file. By default, jQuery Auto Builder will save a file named *jquery.custom.min.js* or *jquery.custom.js* on the current directory. This option does not force directory creation.
 + `-d` -- build jquery in developer mode. By default, jQuery Auto Builder builds a minified version of jQuery.
