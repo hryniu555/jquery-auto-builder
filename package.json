@@ -17,8 +17,7 @@
   "dependencies": {
     "async": "^0.2.10",
     "minimist": "~0.1.0",
-    "requirejs": "^2.1.11",
-		"mkpath": "^0.1.0"
+    "requirejs": "^2.1.11"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.7.2",

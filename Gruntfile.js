@@ -15,9 +15,6 @@ module.exports = function(grunt) {
       gruntfile: {
         src: 'Gruntfile.js'
       },
-      lib_test: {
-        src: ['test/**/*.js']
-      },
       files: {
         src: ['lib/**/*.js', 'bin/**/*.js', '!lib/jquery/**/*.js']
       }

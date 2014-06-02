@@ -40,7 +40,6 @@ if (argv.v === "1") {
 
 }
 
-
 function build(ver, mods){
 
 	sys.log("Ignoring modules: \n");
@@ -82,4 +81,3 @@ jqParser.getModules(argv._, function(err, excludeMods){
 
 	}
 });
-
