@@ -33,20 +33,7 @@
 		"scrollLeft",
 		"scrollTop",
 		"toggleClass",
-		"width"
-	],
-	"deprecated" : [
-		"andSelf"
-	],
-	"dimensions" : [
-		"height",
-		"innerHeight",
-		"innerWidth",
-		"outerHeight",
-		"outerWidth",
-		"width"
-	],
-	"effects" : [
+		"width",
 		"animate",
 		"clearQueue",
 		"delay",
@@ -64,6 +51,17 @@
 		"slideUp",
 		"stop",
 		"toggle"
+	],
+	"deprecated" : [
+		"andSelf"
+	],
+	"dimensions" : [
+		"height",
+		"innerHeight",
+		"innerWidth",
+		"outerHeight",
+		"outerWidth",
+		"width"
 	],
 	"event" : [
 		"bind",

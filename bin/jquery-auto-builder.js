@@ -43,7 +43,7 @@ if (argv.v === "1") {
 
 function build(ver, mods){
 
-	sys.log("Ignoring modules: "+mods);
+	sys.log("Ignoring modules: \n");
 
 	jqBuilder({
 		ver: ver,
