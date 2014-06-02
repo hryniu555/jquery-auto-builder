@@ -17,7 +17,7 @@ Supported `options`:
 
 + `-o` -- the name of the output jquery file. By default, jQuery Auto Builder will save a file named *jquery.custom.min.js* or *jquery.custom.js* on the current directory. This option does not force directory creation.
 + `-d` -- build jquery in developer mode. By default, jQuery Auto Builder builds a minified version of jQuery.
-+ `-v` -- Choose the version of jQuery you want to build. JQuery Auto Builder only builds the latest stable version of jQuery 1.\* and 2.\*. Currently options are:
++ `-v` -- Choose the version of jQuery you want to build. JQuery Auto Builder only builds the latest stable version of jQuery 1.\* and 2.\*. Current possible values are:
   + `1` -- Builds jQuery v.1.11.1  
   + `2` -- Builds jQuery v.2.1.1
 
